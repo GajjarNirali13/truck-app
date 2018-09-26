@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Trucks Menu</ion-title>
+    </ion-navbar>
+</ion-header>
+    
+<ion-content padding>
+    <div>
+            <h3 style="float:left">Truck Menu list</h3>
+            <button ion-button style="float:right" (click)="truckLocation()">Check Location</button>
+    </div>
+    
+    
+    <ion-list *ngIf="menuList?.length > 0">
+        <div *ngFor="let menu of menuList">
+            <ion-list-header style="border-top: 0;font-size: 1.5em;font-weight: 900;">
+                {{menu.mainItem}}
+            </ion-list-header>
+            <div *ngFor="let subMenu of menu.subItem" style="padding-left: 5%;">
+                <ion-item>
+                    <div style="float:left">{{subMenu.item}}</div>
+                    <div style="float:right">{{subMenu.price}}</div>
+                </ion-item>
+            </div>
+        </div>
+    </ion-list>
+</ion-content>

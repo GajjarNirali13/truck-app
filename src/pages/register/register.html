@@ -1,0 +1,73 @@
+<div>
+        <ion-card>
+            <ion-card-header>
+                <h2 class="register-card-header">Register</h2>
+            </ion-card-header>
+            <ion-card-content>
+                <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label floating>Name</ion-label>
+                            <ion-input type="text" formControlName="name"></ion-input>                        
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['name'].errors && !registerForm.controls['name'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['name'].errors.required" class="err-msg">
+                                Name is required.
+                            </div>
+                        </div>
+
+                        <ion-item>
+                            <ion-label floating>Email</ion-label>
+                            <ion-input type="email" formControlName="email"></ion-input>
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['email'].errors && !registerForm.controls['email'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['email'].errors.required" class="err-msg">
+                                Email is required.
+                            </div>
+                        </div>
+        
+                        <ion-item>
+                            <ion-label floating>Username</ion-label>
+                            <ion-input type="text" formControlName="username"></ion-input>                        
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['username'].errors && !registerForm.controls['username'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['username'].errors.required" class="err-msg">
+                                Username is required.
+                            </div>
+                        </div>
+                        
+                        <ion-item>
+                            <ion-label floating>Password</ion-label>
+                            <ion-input type="password" formControlName="password"></ion-input>
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['password'].errors && !registerForm.controls['password'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['password'].errors.required" class="err-msg">
+                                Password is required.
+                            </div>
+                        </div>
+        
+                        <ion-item>
+                            <ion-label floating>Phone Number</ion-label>
+                            <ion-input type="number" formControlName="phno"></ion-input>
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['phno'].errors && !registerForm.controls['phno'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['phno'].errors.required" class="err-msg">
+                                Phone Number is required.
+                            </div>
+                        </div>
+        
+                        <ion-item>
+                            <ion-label floating>Address</ion-label>
+                            <ion-input type="text" formControlName="address"></ion-input>
+                        </ion-item>
+                        <div *ngIf="registerForm.controls['address'].errors && !registerForm.controls['address'].pristine" class="error-msg">
+                            <div [hidden]="!registerForm.controls['address'].errors.required" class="err-msg">
+                                Address is required.
+                            </div>
+                        </div>                        
+                    </ion-list>            
+                    <button class="register-btn" ion-button full type="submit" [disabled]="!registerForm.valid">Register</button>                    
+                </form>
+            </ion-card-content>
+        </ion-card>
+</div>

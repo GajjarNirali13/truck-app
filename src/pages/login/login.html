@@ -1,0 +1,44 @@
+<div>
+    
+    <ion-card>
+
+        <ion-card-header>
+            <h2 class="login-card-header">Login</h2>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <ion-list>
+
+                    <ion-item>
+                        <ion-label floating>Username</ion-label>
+                        <ion-input type="text" formControlName="username"></ion-input>                        
+                    </ion-item>
+                    <div *ngIf="loginForm.controls['username'].errors && !loginForm.controls['username'].pristine" class="error-msg">
+                        <div [hidden]="!loginForm.controls['username'].errors.required" class="err-msg">
+                            Username is required.
+                        </div>
+                    </div>
+                
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input type="password" formControlName="password"></ion-input>
+                    </ion-item>
+                    <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="error-msg">
+                        <div [hidden]="!loginForm.controls['password'].errors.required" class="err-msg">
+                            Password is required.
+                        </div>
+                    </div>
+                
+                </ion-list>
+                <button ion-button full class="login-btn" type="submit">Login</button>
+            </form>
+            <div class="login-register-link">
+                <a (click)="registerUser()">Register Now!!</a>
+            </div>            
+        </ion-card-content>
+      
+    </ion-card>
+
+    
+</div>

@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Trucks List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Truck list</h3>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Location</th>
+            <th>Menu</th>
+        </tr>
+        <tr *ngFor="let truck of truckList">
+            <td>{{truck.truckName}}</td>
+            <td>{{truck.truckPhNo}}</td>
+            <td>{{truck.truckLocation? truck.truckLocation.address: ''}}</td>
+            <td><a (click)="goToTruckMenu(truck)">Show Menu</a></td>            
+        </tr>
+    </table>
+</ion-content>
